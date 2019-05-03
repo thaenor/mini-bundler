@@ -28,7 +28,7 @@ This can also be executed via terminal like `$ node index.js entry.js demo`
 this main function returns the dependency tree it builds by analysing the code, and outputs a `bundle.js` file in the given project folder.
 This `bundle.js` contains all the code in all the required files, compiled in a single one.
 
-NOTE: the file path is resolved with the context of `__dirname` so it always assumed everything is within the project folder.
+NOTE: the file path is resolved with the context of `__dirname` so it always assumes everything is inside the project folder.
 
 ### saveToFile readFile
 
