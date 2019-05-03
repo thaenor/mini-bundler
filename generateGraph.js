@@ -2,9 +2,9 @@ const esprima = require('esprima');
 const ReadFile = require('./readFile');
 
 /**
- * Recurssive function to analyze dependencies. It parses a JS file and looks for "require".
+ * Recursive function to analyze dependencies. It parses a JS file and looks for "require".
  * Uses Esprima to generate the AST and then looks through all the generated tokens to find required files.
- * It keeps recurssing if there are dependencies
+ * It keeps iterating if there are dependencies
  * @param {String} filePath the relative path to the source file
  * @param {Array} dependencyTree the dependency tree
  * @param {Int} id an Id to keep track of the required files
