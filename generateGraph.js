@@ -19,7 +19,18 @@ function generateDependencies(filePath, dependencyTree, id, projectFolder) {
 
   AST.tokens.forEach((token, index) => {
     if (token.value === 'require') {
-      let requiredFile = `${AST.tokens[index + 2].value.split("'")[1]}.js`;
+      let requiredFile;
+      //check if the require statement is wrapped in ' or "
+      //the lenght should be 3 as the result should be [ "require(", "foo", ");" ]
+      if(AST.tokens[index + 2].value.split("'").length === 3){
+        requiredFile = `${AST.tokens[index + 2].value.split("'")[1]}.js`;
+      } else
+      if(AST.tokens[index + 2].value.split('"').length === 3){
+        requiredFile = `${AST.tokens[index + 2].value.split('"')[1]}.js`;
+      } else {
+        throw new Error('a synthax error was found in the require statmenet ',AST.tokens[index + 2].value);
+      }
+      
       console.debug(`found dependecy: ${filePath} requires ${requiredFile}`);
       dependencyTree.push({
         id,
