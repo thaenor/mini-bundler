@@ -8,7 +8,7 @@ Given a series of common.js code, this project can bundle said code into a singl
 
 ## Dependencies
 
-* esprima - a JavaScript parser
+* [esprima](https://medium.com/@jotadeveloper/abstract-syntax-trees-on-javascript-534e33361fc7) - a JavaScript parser
 
 ## How does it work
 
